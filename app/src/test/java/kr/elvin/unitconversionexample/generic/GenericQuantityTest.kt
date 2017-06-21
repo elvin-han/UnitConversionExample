@@ -13,7 +13,7 @@ class GenericQuantityTest {
     @Test
     fun `mile to kilometer`() {
         val tenMiles = Quantity(10.0, Distance.Mile)
-        val kilometers = tenMiles.convert(Distance.Kilometer)
+        val kilometers = tenMiles.to(Distance.Kilometer)
 
         assertEquals(16.09344, kilometers.amount, 0.0)
     }

@@ -12,7 +12,7 @@ class BasicQuantityTest {
     @Test
     fun `mile to kilometer`() {
         val tenMiles = Quantity(10.0, Distance.Mile)
-        val kilometers = tenMiles.convert(Distance.Kilometer)
+        val kilometers = tenMiles.to(Distance.Kilometer)
 
         assertEquals(16.09344, kilometers.amount, 0.0)
     }
@@ -20,7 +20,7 @@ class BasicQuantityTest {
     @Test
     fun `mile to second`() {
         val tenMiles = Quantity(10.0, Distance.Mile)
-        val seconds = tenMiles.convert(Time.Second)
+        val seconds = tenMiles.to(Time.Second)
 
         fail("This wouldn't crash, create a warning or even fail to compile.")
     }
