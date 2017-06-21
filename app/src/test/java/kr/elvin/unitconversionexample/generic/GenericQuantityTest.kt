@@ -18,13 +18,13 @@ class GenericQuantityTest {
         assertEquals(16.09344, kilometers.amount, 0.0)
     }
 
-//    @Test
-//    fun `mile to second`() {
-//        val tenMiles = Quantity(10.0, Distance.Mile)
-//
-//        // compile error
-////        val seconds = tenMiles.convert(Time.Second)
-//    }
+    @Test
+    fun `mile to second`() {
+        val tenMiles = Quantity(10.0, Distance.Mile)
+
+        // compile error
+//        val seconds = tenMiles.convert(Time.Second)
+    }
 
     @Test
     fun extensions() {
