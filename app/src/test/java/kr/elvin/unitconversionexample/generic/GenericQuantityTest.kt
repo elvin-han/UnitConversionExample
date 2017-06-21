@@ -23,7 +23,7 @@ class GenericQuantityTest {
         val tenMiles = Quantity(10.0, Distance.Mile)
 
         // compile error
-//        val seconds = tenMiles.convert(Time.Second)
+//        val seconds = tenMiles.to(Time.Second)
     }
 
     @Test
