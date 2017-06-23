@@ -1,9 +1,11 @@
 package kr.elvin.unitconversionexample.generic
 
+import killometer
 import kilometers
 import kr.elvin.unitconversionexample.Distance
 import meters
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
@@ -27,9 +29,30 @@ class GenericQuantityTest {
     }
 
     @Test
-    fun extensions() {
-        val totalDistance = 10.kilometers + 500.meters
+    fun `quantity extensions`() {
+        val tenMiles = Quantity(10.0, Distance.Mile)
+        val kilometers = tenMiles.killometer
 
-        assertEquals(10.5, totalDistance.amount, 0.0)
+        assertTrue(kilometers is Quantity<Distance>)
+        assertEquals(kilometers.unit, Distance.Kilometer)
+        assertEquals(16.09344, kilometers.amount, 0.0)
+    }
+
+    @Test
+    fun `number extensions`() {
+        val kilometers = 10.kilometers
+
+        assertTrue(kilometers is Quantity<Distance>)
+        assertEquals(Distance.Kilometer, kilometers.unit)
+        assertEquals(10.0, kilometers.amount, 0.0)
+    }
+
+    @Test
+    fun `operator overloading`() {
+        val distance = 10.kilometers + 500.meters
+
+        assertTrue(distance is Quantity<Distance>)
+        assertEquals(distance.unit, Distance.Kilometer)
+        assertEquals(10.5, distance.amount, 0.0)
     }
 }
