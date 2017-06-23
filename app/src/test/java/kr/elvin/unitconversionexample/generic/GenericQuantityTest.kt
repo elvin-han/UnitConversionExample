@@ -34,7 +34,7 @@ class GenericQuantityTest {
         val kilometers = tenMiles.killometer
 
         assertTrue(kilometers is Quantity<Distance>)
-        assertEquals(kilometers.unit, Distance.Kilometer)
+        assertEquals(Distance.Kilometer, kilometers.unit)
         assertEquals(16.09344, kilometers.amount, 0.0)
     }
 
@@ -52,7 +52,7 @@ class GenericQuantityTest {
         val distance = 10.kilometers + 500.meters
 
         assertTrue(distance is Quantity<Distance>)
-        assertEquals(distance.unit, Distance.Kilometer)
+        assertEquals(Distance.Kilometer, distance.unit)
         assertEquals(10.5, distance.amount, 0.0)
     }
 }
